@@ -70,7 +70,7 @@ The Italy setup uses the **imported vaccination rates** from `sigma1.txt`, `sigm
 
 ## Calibration and outputs
 
-The example calls `sim.fit` to calibrate and overwrites the initial `Italy/data/kvalue.csv`.
+The example calls `sim.fit` to calibrate without overwriting the initial `Italy/data/kvalue.csv`.
 
 ## Visualization
 
