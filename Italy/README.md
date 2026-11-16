@@ -11,7 +11,7 @@ ASIIM/
 ├── functions/                             Shared MATLAB functions
 ├── Italy/
 │   ├── example_Italy.m                    Runs one calibration and plots results
-│   ├── ItalySetup_fitPropVar_July2020.m    Loads Italy data and model settings
+│   ├── ItalySetup.m    	           Loads Italy data and model settings
 │   ├── data/                              Required Italy input files (add separately)
 │   ├── results/                           Generated calibration outputs
 │   └── README.md
@@ -39,7 +39,7 @@ example_Italy
 The example adds `../functions/` to the MATLAB path and creates a simulation object:
 
 ```matlab
-sim = ItalySetup_fitPropVar_July2020();
+sim = ItalySetup();
 sim.fit
 sim.simulate
 sim.fitPlot
@@ -49,7 +49,7 @@ sim.fitPlot
 
 ## Input data
 
-The `data/` directory must contain the following files referenced by `ItalySetup_fitPropVar_July2020.m`:
+The `data/` directory must contain the following files referenced by `ItalySetup.m`:
 
 | Category | Input files |
 | --- | --- |
@@ -70,26 +70,17 @@ The Italy setup uses the **imported vaccination rates** from `sigma1.txt`, `sigm
 
 ## Calibration and outputs
 
-The example calls `sim.fit` once. It writes the calibrated transmission factor to:
-
-```text
-Italy/results/kvalue_calibrated.csv
-```
-
-The initial `Italy/data/kvalue.csv` is preserved. The calibration functions may also save diagnostic plots and log files.
+The example calls `sim.fit` to calibrate and overwrites the initial `Italy/data/kvalue.csv`.
 
 ## Visualization
 
 The example runs `plotBothData(sim)` and `sim.fitPlot`. Additional methods, such as `sim.immunity` and `sim.compartments`, may be enabled if the corresponding plotting functions are present in `functions/`.
 
-The existing `sim.seroprevalence` method uses plotting code with Ontario-specific data assumptions; it should not be enabled for Italy without checking or adapting that comparison.
 
 ## Notes on reproducibility
 
 - The Italy setup specifies a time-varying case-detection fraction and hospitalization fitting fraction, as well as Italy-specific contact patterns, vaccination rates, and length-of-stay parameters.
-- The setup file currently inherits `hospitalReportingLag = 3` days from the shared `asiim` class unless explicitly changed. Verify that this matches the settings used for the intended Italy analysis.
 - Genetic algorithm estimates can differ between runs. Record the random seed, MATLAB/toolbox versions, input data, and repository commit used.
-- These scripts have not been executed against the Italy input data in this package; include the `data/` directory before running.
 
 ## Citation
 
