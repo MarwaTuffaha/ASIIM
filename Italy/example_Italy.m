@@ -28,6 +28,8 @@ sim.useParallel = true;
 sim.maxGenerations = 300;
 sim.curvaturePenaltyPercent = 1e-1;
 
+% Run fit preserving the original input kvalue.csv
+sim.kValueHandle = fullfile(sim.folder,'results', 'kvalue_calibrated.csv');
 sim.fit
 
 %% Simulate and plot the fitted result
