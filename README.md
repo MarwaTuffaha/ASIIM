@@ -1,5 +1,5 @@
 
-# ASIIM-COVID19
+# ASIIM
 
 MATLAB source code for the **Age-Structured Immunity and Infection Model (ASIIM)**, with applications to COVID-19 modelling in different jurisdictions.
 
@@ -33,7 +33,8 @@ All applications use the shared ASIIM functions rather than maintaining separate
 ## Requirements
 
 - MATLAB
-- Any additional MATLAB toolboxes required by the relevant scripts.
+- Global Optimization Toolbox (required for genetic algorithm calibration using `ga`)
+- Statistics and Machine Learning Toolbox (required for statistical functions such as `normrnd`)
 
 ## Getting Started
 
