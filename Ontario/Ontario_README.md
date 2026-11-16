@@ -140,7 +140,6 @@ Additional visualizations are available through the ASIIM class, provided their 
 
 ```matlab
 sim.immunity
-sim.seroprevalence
 sim.compartments
 ```
 
